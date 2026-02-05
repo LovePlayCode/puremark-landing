@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import demoVideo from './assets/demo.mp4';
 
 // ============================================
 // 下载链接配置 - 在这里修改你的 App 下载地址
@@ -226,12 +227,23 @@ function App() {
           </div>
 
           {/* Product Preview */}
-          <div className="w-full max-w-5xl glass-card rounded-2xl p-8 animate-slide-up stagger-3">
-            <div className="bg-[#1E293B] rounded-xl h-[400px] md:h-[500px] flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-4">📝</div>
-                <p className="text-[#64748B] text-xl">Product Screenshot Preview</p>
-              </div>
+          <div className="w-full max-w-5xl glass-card rounded-2xl p-4 md:p-8 animate-slide-up stagger-3">
+            <div className="bg-[#1E293B] rounded-xl overflow-hidden">
+              <video 
+                className="w-full h-auto rounded-xl"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              >
+                <source src={demoVideo} type="video/mp4" />
+                <div className="h-[400px] md:h-[500px] flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">📝</div>
+                    <p className="text-[#64748B] text-xl">Product Demo Video</p>
+                  </div>
+                </div>
+              </video>
             </div>
           </div>
         </div>
