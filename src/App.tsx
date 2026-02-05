@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import './App.css';
 
+// ============================================
+// 下载链接配置 - 在这里修改你的 App 下载地址
+// ============================================
+const DOWNLOAD_LINKS = {
+  // macOS 版本下载链接
+  macOS: 'https://github.com/LovePlayCode/puremark/releases/download/v1.0.0/puremark.app.zip',
+  // Windows 版本下载链接（暂未上传，可以后续添加）
+  windows: '#',
+};
+
 // 多语言文本
 const i18n = {
   zh: {
@@ -195,14 +205,24 @@ function App() {
 
           {/* Download Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-slide-up stagger-2">
-            <button className="btn-primary flex items-center gap-3 px-8 py-4 rounded-xl text-white">
+            <a 
+              href={DOWNLOAD_LINKS.macOS} 
+              className="btn-primary flex items-center gap-3 px-8 py-4 rounded-xl text-white no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="text-xl">⌘</span>
               <span className="font-medium">{t.hero.downloadMac}</span>
-            </button>
-            <button className="btn-secondary flex items-center gap-3 px-8 py-4 rounded-xl text-[#F8FAFC] border border-white/10">
+            </a>
+            <a 
+              href={DOWNLOAD_LINKS.windows} 
+              className="btn-secondary flex items-center gap-3 px-8 py-4 rounded-xl text-[#F8FAFC] border border-white/10 no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="text-xl">⊞</span>
               <span className="font-medium">{t.hero.downloadWin}</span>
-            </button>
+            </a>
           </div>
 
           {/* Product Preview */}
@@ -255,20 +275,30 @@ function App() {
 
           {/* Download Buttons */}
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-8">
-            <button className="btn-primary flex items-center gap-3 px-10 py-5 rounded-2xl text-white">
+            <a 
+              href={DOWNLOAD_LINKS.macOS}
+              className="btn-primary flex items-center gap-3 px-10 py-5 rounded-2xl text-white no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="text-2xl">⌘</span>
               <div className="text-left">
                 <div className="font-semibold">{t.download.macTitle}</div>
                 <div className="text-sm text-white/70">{t.download.macVersion}</div>
               </div>
-            </button>
-            <button className="btn-secondary flex items-center gap-3 px-10 py-5 rounded-2xl text-[#F8FAFC] border border-white/10">
+            </a>
+            <a 
+              href={DOWNLOAD_LINKS.windows}
+              className="btn-secondary flex items-center gap-3 px-10 py-5 rounded-2xl text-[#F8FAFC] border border-white/10 no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="text-2xl">⊞</span>
               <div className="text-left">
                 <div className="font-semibold">{t.download.winTitle}</div>
                 <div className="text-sm text-[#94A3B8]">{t.download.winVersion}</div>
               </div>
-            </button>
+            </a>
           </div>
 
           <p className="text-sm text-[#64748B]">{t.download.sysReq}</p>
